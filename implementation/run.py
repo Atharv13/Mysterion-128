@@ -1,3 +1,5 @@
+#encrun
+
 inp='SHA 69 is best'
 
 #String To Hex
@@ -15,3 +17,19 @@ r=12
 debug=False
 rounds=True
 ciphertext= encrypt(message,key,r)
+
+
+
+#dec-run
+
+d=decrypt(ciphertext,key,r)
+
+d_a = codecs.decode(d, "hex")
+print('Ascii is: ',str(d_a,'utf-8'))
+
+if len(inp)<16:
+  d=d[:len(d)-2*(16-len(inp))]
+  d_a = codecs.decode(d, "hex")
+  print()
+  print('Ascii(without garbage) is: ')
+  print(str(d_a,'utf-8'))
